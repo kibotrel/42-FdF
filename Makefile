@@ -6,14 +6,15 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/04 23:44:08 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/05 00:07:15 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Executable's name (Can be changed)
 
-NAME		= fdf
 LFT			= ./libft/libft.a
+NAME		= fdf
+
 # All the directories needed to know where files should be (Can be changed)
 
 OBJDIR		= objs/
@@ -40,10 +41,9 @@ CFLAGS		= $(INCLUDES) -Wall -Wextra -Werror
 
 # Color codes
 
+RESET		= \033[0m
 GREEN		= \033[32m
 YELLOW		= \033[33m
-RESET		= \033[0m
-
 
 # Check if object directory exists, build libft and then the Project
 all: $(NAME)
