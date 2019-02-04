@@ -1,0 +1,4 @@
+maps/
+objs/
+*/*.o
+fdf
