@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/04 23:38:52 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/04 23:44:08 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC			= main.c
 
 CSRC		= $(addprefix $(SRCDIR), $(SRC))
 COBJ		= $(addprefix $(OBJDIR), $(OBJ))
-INCLUDES	= $(foreach include, $(UTILS), -I$(include))
+INCLUDES	= $(foreach include, $(INCDIR), -I$(include))
 
 # How files should be compiled with set flags (Can be changed)
 
