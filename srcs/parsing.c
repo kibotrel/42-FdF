@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:26:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/05 03:41:36 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/05 03:50:31 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,40 +17,6 @@
 #include <unistd.h>
 #include "libft.h"
 #include "fdf.h"
-
-static void	check_row(char *row)
-{
-	int		i;
-
-	i = 0;
-	if (!*row)
-		print_error("Error : Empty row within the file.", 7);
-	while (row[i])
-	{
-		if (row[i] == '-' && ft_isdigit(row[i + 1]))
-			i++;
-		else if (ft_isdigit(row[i]) || row[i] == ' ')
-			i++;
-		else
-			print_error("Error : Incorrect row format.", 8);
-	}
-}
-
-static void	expand_grid(int **table, t_env *env)
-{
-	int		y;
-	int		x;
-
-	y = -1;
-	while (++y < env->height - 1)
-	{
-		x = -1;
-		while (++x < env->width)
-			table[y][x] = env->grid[y][x];
-		free(env->grid[y]);
-	}
-	free(env->grid);
-}
 
 static void	str_to_int_table(char **coords, t_env *env)
 {
