@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/05 00:07:15 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/05 01:16:57 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ INCDIR		= ./includes/ ./libft/includes/
 
 # Source files (Can be changed)
 
-SRC			= main.c
+SRC			= main.c		\
+			  parsing.c		\
+			  utils.c
 
 # Some tricks in order to get the makefile doing his job the way I want (Can't be changed)
 
