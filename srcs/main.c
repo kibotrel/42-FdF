@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 22:31:10 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/05 01:18:46 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/05 02:07:37 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ static void	print_usage(void)
 	**	Error 2 : Read
 	**	Error 3 : Close
 	**	Error 4 : Filename
+	**	Error 5 : Map width
+	**	Error 6 : Missing points
+	** 	Error 7 : Empty row
+	**	Error 8 : Format
+
 	*/
 
 	ft_putendl("usage: Work in Progress.");
