@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/05 03:44:45 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/05 03:49:39 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			parse_file(char *file, t_env *env);
 **	utils.c
 */
 
-void			check_row(char *row)
+void			check_row(char *row);
 void			expand_grid(int **table, t_env *env);
 int				row_size(char **coords);
 int				is_validname(char *filename);
