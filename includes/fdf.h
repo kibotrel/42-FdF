@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/07 07:44:25 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/07 08:42:38 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	s_mlx
 typedef struct	s_cam
 {
 	int			type;
+	int			zoom;
 }				t_cam;
 
 typedef struct	s_pos
@@ -36,6 +37,7 @@ typedef struct	s_env
 	t_mlx		*mlx;
 	t_cam		*cam;
 	t_pos		**grid;
+	int			gap;
 	int			width;
 	int			height;
 }				t_env;
@@ -89,5 +91,11 @@ void			print_map(t_env *env);
 */
 
 void			draw_line(t_pos a, t_pos b, t_env *env);
+
+/*
+**	projection.c
+*/
+
+t_pos			transform(t_pos p, t_env *env);
 
 #endif
