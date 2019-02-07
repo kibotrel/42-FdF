@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:26:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/05 03:50:31 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/07 05:24:34 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,25 @@
 
 static void	str_to_int_table(char **coords, t_env *env)
 {
-	int		**table;
-	int		y;
-	int		x;
+	t_pos		**table;
+	int			y;
+	int			x;
 
-	if (!(table = (int**)malloc(sizeof(int*) * env->height)))
+	if (!(table = (t_pos**)malloc(sizeof(t_pos*) * env->height)))
 		print_error("Error : Can't allocate memory.", 1);
 	y = -1;
 	while (++y < env->height)
-		if(!(table[y] = (int*)malloc(sizeof(int) * (env->width))))
+		if(!(table[y] = (t_pos*)malloc(sizeof(t_pos) * (env->width))))
 			print_error("Error : Can't allocate memory.", 1);
 	if (env->height - 1 > 0)
 		expand_grid(table, env);
 	x = -1;
 	while (++x < env->width)
-		table[y - 1][x] = ft_atoi(coords[x]);
+	{
+		table[y - 1][x].x = x;
+		table[y - 1][x].y = y - 1;
+		table[y - 1][x].z = ft_atoi(coords[x]);
+	}
 	env->grid = table;
 }
 
@@ -58,13 +62,13 @@ static void	get_values(int fd, t_env *env)
 		free(row);
 		free(coords);
 	}
+	if (!env->height)
+		print_error("Error : Empty file.", 9);
 }
 
 void		parse_file(char *file, t_env *env)
 {
 	int		fd;
-	int		y;
-	int		x;
 
 	if (!is_validname(file))
 		print_error("Error : Wrong filename (expected *.fdf).", 4);
@@ -73,12 +77,5 @@ void		parse_file(char *file, t_env *env)
 	get_values(fd, env);
 	if (close(fd))
 		print_error("Error : Can't close file.", 3);
-	y = -1;
-	while (++y < env->height)
-	{
-		x = -1;
-		while (++x < env->width)
-			printf("%d ", env->grid[y][x]);
-		printf("\n");
-	}
+	printf("Map infos :\n\n\tGrid Dimensions : %d x %d\n\tPoints          : %d\n\n", env->height, env->width, env->height * env->width); //
 }
