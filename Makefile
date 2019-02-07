@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/07 05:22:45 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/07 07:43:29 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC			= main.c		\
 			  parsing.c		\
 			  utils.c		\
 			  setup.c		\
-			  print_map.c
+			  print_map.c	\
+			  draw_line.c
 
 LFT			= ./libft/libft.a
 
