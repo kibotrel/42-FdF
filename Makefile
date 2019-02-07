@@ -6,13 +6,12 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/05 01:16:57 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/07 05:22:45 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Executable's name (Can be changed)
 
-LFT			= ./libft/libft.a
 NAME		= fdf
 
 # All the directories needed to know where files should be (Can be changed)
@@ -20,25 +19,32 @@ NAME		= fdf
 OBJDIR		= objs/
 SRCDIR		= srcs/
 LFTDIR		= libft/
+MLXDIR		= /usr/local/lib/
 INCDIR		= ./includes/ ./libft/includes/
 
 # Source files (Can be changed)
 
 SRC			= main.c		\
 			  parsing.c		\
-			  utils.c
+			  utils.c		\
+			  setup.c		\
+			  print_map.c
 
+LFT			= ./libft/libft.a
+
+TOOLS		= OpenGL AppKit
 # Some tricks in order to get the makefile doing his job the way I want (Can't be changed)
 
 CSRC		= $(addprefix $(SRCDIR), $(SRC))
 COBJ		= $(addprefix $(OBJDIR), $(OBJ))
 INCLUDES	= $(foreach include, $(INCDIR), -I$(include))
+FRAMEWORKS	= $(foreach framework, $(TOOLS), -framework $(framework))
 
 # How files should be compiled with set flags (Can be changed)
 
 CC			= gcc
 OBJ			= $(SRC:.c=.o)
-LIBS		= -L$(LFTDIR) -lft
+LIBS		= -L$(LFTDIR) -lft -L$(MLXDIR) -lmlx
 CFLAGS		= $(INCLUDES) -Wall -Wextra -Werror
 
 # Color codes
@@ -52,7 +58,7 @@ all: $(NAME)
 
 $(NAME): $(LFT) $(OBJDIR) $(COBJ)
 	@echo "$(YELLOW)\n      - Building $(RESET)$(NAME) $(YELLOW)...\n$(RESET)"
-	@$(CC) $(CFLAGS) $(LIBS) -o $(NAME) $(COBJ)
+	@$(CC) $(CFLAGS) $(LIBS) $(FRAMEWORKS) -o $(NAME) $(COBJ)
 	@echo "$(GREEN)***   Project $(NAME) successfully compiled   ***\n$(RESET)"
 
 $(OBJDIR):
