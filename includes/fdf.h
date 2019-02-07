@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/07 05:46:47 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/07 07:44:25 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,19 @@ typedef struct	s_env
 	t_mlx		*mlx;
 	t_cam		*cam;
 	t_pos		**grid;
-	int			height;
 	int			width;
-	int			gap;
+	int			height;
 }				t_env;
+
+typedef struct	s_line
+{
+	int			error;
+	int			offset;
+	int			sign_y;
+	int			sign_x;
+	int			delta_y;
+	int			delta_x;
+}				t_line;
 
 /*
 **	main.c
@@ -59,6 +68,7 @@ void			parse_file(char *file, t_env *env);
 
 void			check_row(char *row);
 void			expand_grid(t_pos **table, t_env *env);
+int				absolute_value(int nb);
 int				row_size(char **coords);
 int				is_validname(char *filename);
 
@@ -73,5 +83,11 @@ void			initialize(t_env *env);
 */
 
 void			print_map(t_env *env);
+
+/*
+**	draw_line.c
+*/
+
+void			draw_line(t_pos a, t_pos b, t_env *env);
 
 #endif
