@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 00:52:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/07 05:50:42 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/07 07:46:50 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ static void	init_cam(t_env *env)
 	printf("Cam infos :\n\n\tType : %d (Isometric Projection)\n\n", env->cam->type); //
 }
 
-static void	init_env(t_env *env)
-{
-	env->gap = HEIGHT /env->width;
-}
+// static void	init_env(t_env *env)
+// {
+// 	env->gap = HEIGHT /env->width;
+// }
 
 void	initialize(t_env *env)
 {
 	init_mlx(env);
 	init_cam(env);
-	init_env(env);
+//	init_env(env);
 }

@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:54:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/05 03:44:51 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/07 06:53:40 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	check_row(char *row)
 	}
 }
 
-void	expand_grid(int **table, t_env *env)
+void	expand_grid(t_pos **table, t_env *env)
 {
 	int		y;
 	int		x;
@@ -71,4 +71,9 @@ void	expand_grid(int **table, t_env *env)
 		free(env->grid[y]);
 	}
 	free(env->grid);
+}
+
+int		absolute_value(int nb)
+{
+	return (nb < 0 ? -nb : nb);
 }
