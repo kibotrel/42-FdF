@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/07 08:42:38 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/08 04:47:16 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ typedef struct	s_mlx
 
 typedef struct	s_cam
 {
+	float		depth;
 	int			type;
 	int			zoom;
+	int			offset_y;
+	int			offset_x;
 }				t_cam;
 
 typedef struct	s_pos
@@ -74,6 +77,13 @@ int				absolute_value(int nb);
 int				row_size(char **coords);
 int				is_validname(char *filename);
 
+
+/*
+**	utils2.c
+*/
+
+void			free_all(t_env *param);
+int				init_zoom(int a, int b);
 /*
 ** setup.c
 */
@@ -98,4 +108,19 @@ void			draw_line(t_pos a, t_pos b, t_env *env);
 
 t_pos			transform(t_pos p, t_env *env);
 
+
+/*
+**	hooks.c
+*/
+
+void			hooks(t_env *env);
+
+/*
+** process_input.c
+*/
+
+void			zoom(t_env *env, int key);
+void			offset(t_env *env, int key);
+void			projection(t_env *env, int key);
+void			scale_height(t_env *env, int key);
 #endif
