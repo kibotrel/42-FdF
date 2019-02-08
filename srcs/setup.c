@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 00:52:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/07 08:59:16 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/08 04:47:41 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,17 @@ static void	init_cam(t_env *env)
 
 	if (!(fdf_cam = (t_cam*)malloc(sizeof(t_cam))))
 		print_error("Error : Can't allocate memory.", 1);
-	fdf_cam->type = ISO;
-	fdf_cam->zoom = 1;
+	fdf_cam->type = ISOMETRIC;
+	fdf_cam->zoom = init_zoom(WIDTH / env->width / 2, HEIGHT / env->height / 2);
+	fdf_cam->offset_y = 0;
+	fdf_cam->offset_x = 0;
+	fdf_cam->depth = 5.0;
 	env->cam = fdf_cam;
-	printf("Cam infos :\n\n\tType : %d (Isometric Projection)\n\n", env->cam->type); //
-}
-
-static void	init_env(t_env *env)
-{
-	env->gap = WIDTH /env->width;
+	printf("Cam infos :\n\n\tType : %d\n\tZoom : %d\n\n", env->cam->type, env->cam->zoom); //
 }
 
 void	initialize(t_env *env)
 {
 	init_mlx(env);
 	init_cam(env);
-	init_env(env);
 }
