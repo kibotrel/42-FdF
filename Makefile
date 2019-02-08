@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/07 08:07:08 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/08 03:38:18 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,16 @@ INCDIR		= ./includes/ ./libft/includes/
 
 # Source files (Can be changed)
 
-SRC			= main.c		\
-			  parsing.c		\
-			  utils.c		\
-			  setup.c		\
-			  print_map.c	\
-			  draw_line.c	\
-			  projection.c	
+SRC			= main.c			\
+			  parsing.c			\
+			  utils.c			\
+			  utils2.c			\
+			  setup.c			\
+			  print_map.c		\
+			  draw_line.c		\
+			  projection.c		\
+			  hooks.c			\
+			  process_input.c
 
 LFT			= ./libft/libft.a
 
