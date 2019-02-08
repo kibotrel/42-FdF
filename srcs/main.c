@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 22:31:10 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/07 05:27:00 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/08 04:47:47 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int			main(int ac, char **av)
 		initialize(env);
 		print_map(env);
 		printf("\n=================================\n\n"); //
+		hooks(env);
 		mlx_loop(env->mlx);
 	}
 	else
