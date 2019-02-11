@@ -6,11 +6,9 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:26:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/07 05:24:34 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:27:34 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h> //
 
 #include <fcntl.h>
 #include <stdlib.h>
@@ -38,6 +36,7 @@ static void	str_to_int_table(char **coords, t_env *env)
 		table[y - 1][x].x = x;
 		table[y - 1][x].y = y - 1;
 		table[y - 1][x].z = ft_atoi(coords[x]);
+		table[y - 1][x].color = 0xFFFFFF;
 	}
 	env->grid = table;
 }
@@ -77,5 +76,4 @@ void		parse_file(char *file, t_env *env)
 	get_values(fd, env);
 	if (close(fd))
 		print_error("Error : Can't close file.", 3);
-	printf("Map infos :\n\n\tGrid Dimensions : %d x %d\n\tPoints          : %d\n\n", env->height, env->width, env->height * env->width); //
 }
