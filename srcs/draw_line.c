@@ -6,11 +6,10 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 05:52:42 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/07 07:45:39 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:36:11 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> //
 #include <stdlib.h>
 #include "fdf.h"
 #include "mlx.h"
@@ -36,7 +35,7 @@ void			draw_line(t_pos a, t_pos b, t_env *env)
 	p = a;
 	while (p.y != b.y || p.x != b.x)
 	{
-		mlx_pixel_put(env->mlx->id, env->mlx->win, p.x, p.y, 0xFFFFFF);
+		mlx_pixel_put(env->mlx->id, env->mlx->win, p.x, p.y, color(p, a, b, params));
 		if ((params.error = params.offset * 2) > -params.delta_y)
 		{
 			params.offset -= params.delta_y;
@@ -48,5 +47,5 @@ void			draw_line(t_pos a, t_pos b, t_env *env)
 			p.y += params.sign_y;
 		}
 	}
-	mlx_pixel_put(env->mlx->id, env->mlx->win, p.x, p.y, 0xFFFFFF);
+	mlx_pixel_put(env->mlx->id, env->mlx->win, p.x, p.y, color(p, a, b, params));
 }
