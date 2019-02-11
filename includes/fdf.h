@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/08 04:47:16 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/11 20:54:11 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_pos
 	int			y;
 	int			x;
 	int			z;
+	int			color;
 }				t_pos;
 
 typedef struct	s_env
@@ -40,7 +41,8 @@ typedef struct	s_env
 	t_mlx		*mlx;
 	t_cam		*cam;
 	t_pos		**grid;
-	int			gap;
+	int			z_min;
+	int			z_max;
 	int			width;
 	int			height;
 }				t_env;
@@ -123,4 +125,13 @@ void			zoom(t_env *env, int key);
 void			offset(t_env *env, int key);
 void			projection(t_env *env, int key);
 void			scale_height(t_env *env, int key);
+void			change_color(t_env *env, int key);
+
+/*
+**	color.c
+*/
+
+int				color(t_pos pos, t_pos start, t_pos end, t_line params);
+int				init_color(t_env *env, t_pos p);
+
 #endif

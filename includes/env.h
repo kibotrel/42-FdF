@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 04:53:11 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/08 04:18:45 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/11 20:58:01 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 */
 
 # define HEIGHT 1200
-# define WIDTH 1600
-# define TITLE "Work in progress."
+# define WIDTH 2000
+# define TITLE "Wireframe created by kibotrel."
 
 /*
 **	Available projections
 */
 
-# define MIN_DEPTH 1
+# define MIN_DEPTH 0.5
 # define MAX_DEPTH 5
 # define ISOMETRIC 0
 # define PARALLEL 1
@@ -37,6 +37,9 @@
 
 # define PG_DOWN 121
 # define PG_UP 116
+# define PAD_1 83
+# define PAD_2 84
+# define PAD_3 85
 # define RIGHT 124
 # define MINUS 78
 # define PLUS 69
@@ -50,4 +53,15 @@
 # define D 2
 # define I 34
 # define P 35
+
+/*
+**	Preset colors
+*/
+
+# define YELLOW 0xFFFF00
+# define WHITE 0xFFFFFF
+# define GREEN 0x00FF00
+# define ORANGE 0x0020FF
+# define RED 0xBA1200
+
 #endif

@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/08 03:38:18 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/11 18:34:32 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRC			= main.c			\
 			  draw_line.c		\
 			  projection.c		\
 			  hooks.c			\
-			  process_input.c
+			  process_input.c	\
+			  color.c
 
 LFT			= ./libft/libft.a
 
