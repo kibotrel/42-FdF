@@ -6,11 +6,9 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 22:31:10 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/08 04:47:47 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:00:51 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h> //
 
 #include <stdlib.h>
 #include "libft.h"
@@ -37,7 +35,6 @@ static void	print_usage(void)
 void		print_error(char *desc, int error)
 {
 	ft_putendl(desc);
-	printf("\n=================================\n\n"); //
 	exit(error);
 }
 
@@ -46,13 +43,11 @@ int			main(int ac, char **av)
 	t_env	*env;
 	if (ac == 2)
 	{
-		printf("==========[ wireframe ]==========\n\n"); //
 		if (!(env = (t_env*)malloc(sizeof(t_env))))
 			print_error("Error : Can't allocate memory.", 1);
 		parse_file(av[1], env);
 		initialize(env);
 		print_map(env);
-		printf("\n=================================\n\n"); //
 		hooks(env);
 		mlx_loop(env->mlx);
 	}
