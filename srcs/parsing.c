@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:26:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 20:07:09 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 22:32:26 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	str_to_int_table(char **coords, t_env *env)
 		print_error("Error : Can't allocate memory.", 1);
 	y = -1;
 	while (++y < env->height)
-		if(!(table[y] = (t_pos*)malloc(sizeof(t_pos) * (env->width))))
+		if (!(table[y] = (t_pos*)malloc(sizeof(t_pos) * (env->width))))
 			print_error("Error : Can't allocate memory.", 1);
 	if (env->height - 1 > 0)
 		expand_grid(table, env);

@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 05:16:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 21:15:27 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 22:31:56 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ void		print_map(t_env *env)
 		while (++x < env->width)
 		{
 			if (x < env->width - 1)
-				draw_line(transform(env->grid[y][x], env), transform(env->grid[y][x + 1], env), env);
+				draw_line(transform(env->grid[y][x], env),
+				transform(env->grid[y][x + 1], env), env);
 			if (y < env->height - 1)
-				draw_line(transform(env->grid[y][x], env), transform(env->grid[y + 1][x], env), env);
+				draw_line(transform(env->grid[y][x], env),
+				transform(env->grid[y + 1][x], env), env);
 		}
 	}
 	if (env->cam->hud == 1)

@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 00:52:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 21:13:46 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 22:32:54 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	init_mlx(t_env *env)
 		print_error("Error : Can't allocate memory.", 1);
 	fdf_mlx->id = mlx_init();
 	fdf_mlx->win = mlx_new_window(fdf_mlx->id, WIDTH, HEIGHT, TITLE);
-	env->mlx =fdf_mlx;
+	env->mlx = fdf_mlx;
 }
 
 static void	init_cam(t_env *env)

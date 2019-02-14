@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/14 21:00:07 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/14 22:26:37 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ SRC			= main.c			\
 			  process_input.c	\
 			  color.c			\
 			  hud.c				\
-			  rotate.c
+			  rotate.c			\
+			  color_presets.c
 
 LFT			= ./libft/libft.a
 

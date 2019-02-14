@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 02:01:56 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 20:07:13 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 22:22:11 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ static int		read_input(int key, void *env)
 		colorset(env, key);
 	if (key == H)
 		toggle_hud(env);
-	if (key == NUM2 || key == NUM3 || key == NUM4 || key == NUM6 || key == NUM7 || key == NUM8)
+	if (key == NUM2 || key == NUM3 || key == NUM4 || key == NUM6
+		|| key == NUM7 || key == NUM8)
 		rotate(env, key);
 	return (0);
 }
+
 void			hooks(t_env *env)
 {
 	mlx_hook(env->mlx->win, 17, 0, red_cross, env);

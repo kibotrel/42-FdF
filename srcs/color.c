@@ -6,12 +6,11 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:05:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 21:22:04 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 22:28:36 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "env.h"
 #include "mlx.h"
 
 static double	ratio(int start, int end, int current)
@@ -29,37 +28,19 @@ static int		light(int start, int end, double percent)
 	return ((int)((1 - percent) * start + percent * end));
 }
 
-void	colorset(t_env *env, int key)
+void			colorset(t_env *env, int key)
 {
 	if (key == Z)
-	{
-		env->color_min = BLUE;
-		env->color_max = WHITE;
-		env->color_half = GREENER;
-		env->color_third = BROWN;
-		env->color_fourth = GREEN;
-	}
+		earth_set(env);
 	if (key == X)
-	{
-		env->color_min = BROWNER;
-		env->color_max = ORANGE;
-		env->color_half = REDER;
-		env->color_third = BROWN;
-		env->color_fourth = RED;
-	}
+		mars_set(env);
 	if (key == C)
-	{
-		env->color_min = GRAY_MIN;
-		env->color_max = WHITE;
-		env->color_half = GRAY_MID;
-		env->color_third = GRAY_HIGH;
-		env->color_fourth = GRAY_LOW;
-	}
+		moon_set(env);
 	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
 
-int		init_color(t_env* env, int z)
+int				init_color(t_env *env, int z)
 {
 	double	percent;
 

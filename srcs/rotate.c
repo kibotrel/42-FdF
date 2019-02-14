@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 18:43:08 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 21:22:13 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 22:32:37 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	rotate(t_env *env, int key)
 	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
+
 t_pos	rotate_x(t_pos p, double alpha)
 {
 	int	y;

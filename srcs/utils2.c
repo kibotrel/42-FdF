@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 02:07:46 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 21:19:34 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 22:33:07 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	free_all(t_env *env)
 	y = -1;
 	free(env->mlx);
 	free(env->cam);
-	while(++y < env->height)
+	while (++y < env->height)
 		free(env->grid[y]);
 	free(env->grid);
 	free(env);
@@ -33,7 +33,7 @@ void	free_tab(char **coords)
 	int	y;
 
 	y = 0;
-	while(coords[y])
+	while (coords[y])
 		free(coords[y++]);
 	free(coords);
 }

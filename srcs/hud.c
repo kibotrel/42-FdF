@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:56:28 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 21:22:31 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 22:34:41 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ void		toggle_hud(t_env *env)
 	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
-
-// static void	print_infos(id, win)
-// {
-//
-// }
 
 static void	print_credits(void *id, void *win)
 {
@@ -54,6 +49,5 @@ static void	print_controls(void *id, void *win)
 void		print_hud(void *id, void *win)
 {
 	print_controls(id, win);
-	// print_infos(id, win);
 	print_credits(id, win);
 }
