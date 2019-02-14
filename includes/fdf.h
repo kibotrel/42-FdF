@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/11 20:54:11 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 21:32:38 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ typedef struct	s_mlx
 
 typedef struct	s_cam
 {
+	double		alpha;
+	double		beta;
+	double		gamma;
 	float		depth;
+	int			hud;
 	int			type;
 	int			zoom;
 	int			offset_y;
@@ -45,6 +49,11 @@ typedef struct	s_env
 	int			z_max;
 	int			width;
 	int			height;
+	int			color_min;
+	int			color_max;
+	int			color_half;
+	int			color_third;
+	int			color_fourth;
 }				t_env;
 
 typedef struct	s_line
@@ -85,7 +94,8 @@ int				is_validname(char *filename);
 */
 
 void			free_all(t_env *param);
-int				init_zoom(int a, int b);
+void			free_tab(char **coords);
+int				get_zoom(int a, int b);
 /*
 ** setup.c
 */
@@ -97,7 +107,7 @@ void			initialize(t_env *env);
 */
 
 void			print_map(t_env *env);
-
+void			toggle_hud(t_env *env);
 /*
 **	draw_line.c
 */
@@ -125,13 +135,28 @@ void			zoom(t_env *env, int key);
 void			offset(t_env *env, int key);
 void			projection(t_env *env, int key);
 void			scale_height(t_env *env, int key);
-void			change_color(t_env *env, int key);
+void			colorset(t_env *env, int key);
 
 /*
 **	color.c
 */
 
 int				color(t_pos pos, t_pos start, t_pos end, t_line params);
-int				init_color(t_env *env, t_pos p);
+int				init_color(t_env *env, int z);
+
+/*
+**	hud.c
+*/
+
+void			print_hud(void *id, void *win);
+
+/*
+**	rotate.c
+*/
+
+t_pos			rotate_x(t_pos p, double alpha);
+t_pos			rotate_y(t_pos p, double alpha);
+t_pos			rotate_z(t_pos p, double alpha);
+void			rotate(t_env *env, int key);
 
 #endif
