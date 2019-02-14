@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/11 18:34:32 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/14 21:00:07 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ SRC			= main.c			\
 			  projection.c		\
 			  hooks.c			\
 			  process_input.c	\
-			  color.c
+			  color.c			\
+			  hud.c				\
+			  rotate.c
 
 LFT			= ./libft/libft.a
 
@@ -52,7 +54,6 @@ CC			= gcc
 OBJ			= $(SRC:.c=.o)
 LIBS		= -L$(LFTDIR) -lft -L$(MLXDIR) -lmlx
 CFLAGS		= $(INCLUDES) -Wall -Wextra -Werror
-
 # Color codes
 
 RESET		= \033[0m
