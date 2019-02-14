@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 00:52:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/11 21:24:48 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 21:13:46 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,14 @@ static void	init_cam(t_env *env)
 	if (!(fdf_cam = (t_cam*)malloc(sizeof(t_cam))))
 		print_error("Error : Can't allocate memory.", 1);
 	fdf_cam->type = ISOMETRIC;
-	fdf_cam->zoom = init_zoom(WIDTH / env->width / 2, HEIGHT / env->height / 2);
+	fdf_cam->zoom = get_zoom(WIDTH / env->width / 2, HEIGHT / env->height / 2);
 	fdf_cam->offset_y = 0;
 	fdf_cam->offset_x = 0;
 	fdf_cam->depth = 5.0;
+	fdf_cam->alpha = 0.0;
+	fdf_cam->beta = 0.0;
+	fdf_cam->gamma = 0.0;
+	fdf_cam->hud = 1;
 	env->cam = fdf_cam;
 }
 
@@ -59,9 +63,14 @@ static void	init_env(t_env *env)
 				env->z_max = env->grid[y][x].z;
 		}
 	}
+	env->color_min = BLUE;
+	env->color_max = WHITE;
+	env->color_half = GREENER;
+	env->color_third = BROWN;
+	env->color_fourth = GREEN;
 }
 
-void	initialize(t_env *env)
+void		initialize(t_env *env)
 {
 	init_mlx(env);
 	init_cam(env);
