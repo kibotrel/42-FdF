@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 04:53:11 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 19:49:39 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 23:46:17 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define ENV_H
 
 /*
-**	Informations about mlx window
+**	Informations about mlx window and interface
 */
 
 # define HEIGHT 1200
 # define WIDTH 2000
-# define TITLE "- Wireframe 42Paris -"
+# define TITLE "[Minilibx Project] Wireframe 42"
 
 /*
 **	Available projections and somes informations
