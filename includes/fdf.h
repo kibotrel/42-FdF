@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 21:32:38 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 22:35:20 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ int				absolute_value(int nb);
 int				row_size(char **coords);
 int				is_validname(char *filename);
 
-
 /*
 **	utils2.c
 */
@@ -119,7 +118,6 @@ void			draw_line(t_pos a, t_pos b, t_env *env);
 */
 
 t_pos			transform(t_pos p, t_env *env);
-
 
 /*
 **	hooks.c
@@ -159,4 +157,11 @@ t_pos			rotate_y(t_pos p, double alpha);
 t_pos			rotate_z(t_pos p, double alpha);
 void			rotate(t_env *env, int key);
 
+/*
+**	color_presets.c
+*/
+
+void			mars_set(t_env *env);
+void			moon_set(t_env *env);
+void			earth_set(t_env *env);
 #endif
