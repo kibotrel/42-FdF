@@ -6,12 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:05:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/11 19:25:16 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 21:22:04 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "env.h"
+#include "mlx.h"
 
 static double	ratio(int start, int end, int current)
 {
@@ -28,21 +29,51 @@ static int		light(int start, int end, double percent)
 	return ((int)((1 - percent) * start + percent * end));
 }
 
-int		init_color(t_env* env, t_pos p)
+void	colorset(t_env *env, int key)
+{
+	if (key == Z)
+	{
+		env->color_min = BLUE;
+		env->color_max = WHITE;
+		env->color_half = GREENER;
+		env->color_third = BROWN;
+		env->color_fourth = GREEN;
+	}
+	if (key == X)
+	{
+		env->color_min = BROWNER;
+		env->color_max = ORANGE;
+		env->color_half = REDER;
+		env->color_third = BROWN;
+		env->color_fourth = RED;
+	}
+	if (key == C)
+	{
+		env->color_min = GRAY_MIN;
+		env->color_max = WHITE;
+		env->color_half = GRAY_MID;
+		env->color_third = GRAY_HIGH;
+		env->color_fourth = GRAY_LOW;
+	}
+	mlx_clear_window(env->mlx->id, env->mlx->win);
+	print_map(env);
+}
+
+int		init_color(t_env* env, int z)
 {
 	double	percent;
 
-	percent = ratio(env->z_min, env->z_max, p.z);
-	if (percent < 0.2)
-		return (WHITE);
-	else if (percent < 0.4)
-		return (GREEN);
-	else if (percent < 0.6)
-		return (YELLOW);
-	else if (percent < 0.8)
-		return (ORANGE);
+	percent = ratio(env->z_min, env->z_max, z);
+	if (percent < 0.005)
+		return (env->color_min);
+	else if (percent < 0.065)
+		return (env->color_fourth);
+	else if (percent < 0.125)
+		return (env->color_half);
+	else if (percent < 0.275)
+		return (env->color_third);
 	else
-		return (RED);
+		return (env->color_max);
 }
 
 int				color(t_pos pos, t_pos start, t_pos end, t_line params)

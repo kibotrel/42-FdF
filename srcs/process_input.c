@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 03:30:20 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/08 04:40:29 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/14 21:22:21 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ void	projection(t_env *env, int key)
 		env->cam->type = ISOMETRIC;
 	if (key == P)
 		env->cam->type = PARALLEL;
+	env->cam->zoom = get_zoom(WIDTH / env->width / 2, HEIGHT / env->height / 2);
+	env->cam->offset_x = 0;
+	env->cam->offset_y = 0;
+	env->cam->depth = 5.0;
+	env->cam->alpha = 0.0;
+	env->cam->beta = 0.0;
+	env->cam->gamma = 0.0;
 	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
