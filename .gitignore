@@ -3,3 +3,8 @@ objs/
 */objs/*.o
 libft.a
 fdf
+fdf.dSYM
+
+
+// ACTIVER / DESACTIVER HUD
+// PALETTE DE COULEUR
