@@ -6,13 +6,14 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 05:52:42 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 22:29:50 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:01:29 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "fdf.h"
 #include "mlx.h"
+#include "env.h"
 
 static t_line	setup_params(t_pos a, t_pos b)
 {
@@ -27,6 +28,19 @@ static t_line	setup_params(t_pos a, t_pos b)
 	return (params);
 }
 
+void			pixel_to_image(t_env *env, int x, int y, int color)
+{
+	int		i;
+
+	i = (x * env->mlx->img->bpp / 8) + (y * env->mlx->img->size);
+	if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)
+	{
+		env->mlx->img->data[i] = color;
+		env->mlx->img->data[++i] = color >> 8;
+		env->mlx->img->data[++i] = color >> 16;
+	}
+}
+
 void			draw_line(t_pos a, t_pos b, t_env *env)
 {
 	t_line	params;
@@ -36,8 +50,7 @@ void			draw_line(t_pos a, t_pos b, t_env *env)
 	p = a;
 	while (p.y != b.y || p.x != b.x)
 	{
-		mlx_pixel_put(env->mlx->id, env->mlx->win, p.x, p.y,
-			color(p, a, b, params));
+		pixel_to_image(env, p.x, p.y, color(p, a, b, params));
 		if ((params.error = params.offset * 2) > -params.delta_y)
 		{
 			params.offset -= params.delta_y;
@@ -49,6 +62,5 @@ void			draw_line(t_pos a, t_pos b, t_env *env)
 			p.y += params.sign_y;
 		}
 	}
-	mlx_pixel_put(env->mlx->id, env->mlx->win, p.x, p.y,
-		color(p, a, b, params));
+	pixel_to_image(env, p.x, p.y, color(p, a, b, params));
 }

@@ -6,17 +6,28 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 22:35:20 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 06:58:53 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
+
+typedef struct	s_img
+{
+	void		*id;
+	char		*data;
+	int			bpp;
+	int			size;
+	int			endian;
+}				t_img;
+
 typedef struct	s_mlx
 {
 	void		*id;
 	void		*win;
+	t_img		*img;
 }				t_mlx;
 
 typedef struct	s_cam
@@ -92,6 +103,7 @@ int				is_validname(char *filename);
 **	utils2.c
 */
 
+t_env			*new_img(t_env *env);
 void			free_all(t_env *param);
 void			free_tab(char **coords);
 int				get_zoom(int a, int b);
@@ -112,6 +124,7 @@ void			toggle_hud(t_env *env);
 */
 
 void			draw_line(t_pos a, t_pos b, t_env *env);
+void			pixel_to_image(t_env *env, int x, int y, int color);
 
 /*
 **	projection.c
@@ -146,7 +159,7 @@ int				init_color(t_env *env, int z);
 **	hud.c
 */
 
-void			print_hud(void *id, void *win);
+void			print_hud(t_env  *env, int draw);
 
 /*
 **	rotate.c

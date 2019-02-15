@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:56:28 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 23:49:21 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:02:53 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 void		toggle_hud(t_env *env)
 {
+	env = new_img(env);
 	env->cam->hud *= -1;
-	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
 
-static void	print_boxes(void *id, void *win)
+static void	print_boxes(t_env *env)
 {
 	int	y;
 	int	x;
@@ -35,9 +35,9 @@ static void	print_boxes(void *id, void *win)
 		while (++x < WIDTH)
 		{
 			if (y < 303 || (y > 948 && y < 951) || x < 1717)
-				mlx_pixel_put(id, win, x, y, 0xFFFFFF);
+				pixel_to_image(env, x, y, 0xFFFFFF);
 			else
-				mlx_pixel_put(id, win, x, y, 0x242424);
+				pixel_to_image(env, x, y, 0x242424);
 		}
 	}
 	y = 1119;
@@ -47,9 +47,9 @@ static void	print_boxes(void *id, void *win)
 		while (++x < 1155)
 		{
 			if (y < 1123 || x < 828 || x > 1152)
-				mlx_pixel_put(id, win, x, y, 0xFFFFFF);
+				pixel_to_image(env, x, y, 0xFFFFFF);
 			else
-				mlx_pixel_put(id, win, x, y, 0x242424);
+				pixel_to_image(env, x, y, 0x242424);
 		}
 	}
 }
@@ -79,9 +79,16 @@ static void	print_controls(void *id, void *win)
 	mlx_string_put(id, win, 1843, 910, 0xFFFFFF, "Esc");
 }
 
-void		print_hud(void *id, void *win)
+void		print_hud(t_env *env, int draw)
 {
-	print_boxes(id, win);
-	print_controls(id, win);
-	print_credits(id, win);
+	if (env->cam->hud == 1)
+	{
+		if (!draw)
+			print_boxes(env);
+		else
+		{
+			print_controls(env->mlx->id, env->mlx->win);
+			print_credits(env->mlx->id, env->mlx->win);
+		}
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 03:30:20 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 21:22:21 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:03:26 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@
 
 void	zoom(t_env *env, int key)
 {
+	env = new_img(env);
 	if (key == PLUS)
 		env->cam->zoom++;
 	if (key == MINUS && env->cam->zoom > 1)
 		env->cam->zoom--;
-	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
 
 void	projection(t_env *env, int key)
 {
+	env = new_img(env);
 	if (key == I)
 		env->cam->type = ISOMETRIC;
 	if (key == P)
@@ -37,12 +38,12 @@ void	projection(t_env *env, int key)
 	env->cam->alpha = 0.0;
 	env->cam->beta = 0.0;
 	env->cam->gamma = 0.0;
-	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
 
 void	offset(t_env *env, int key)
 {
+	env = new_img(env);
 	if (key == W)
 		env->cam->offset_y -= OFFSET;
 	if (key == A)
@@ -51,16 +52,15 @@ void	offset(t_env *env, int key)
 		env->cam->offset_y += OFFSET;
 	if (key == D)
 		env->cam->offset_x += OFFSET;
-	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
 
 void	scale_height(t_env *env, int key)
 {
+	env = new_img(env);
 	if (key == PG_UP && env->cam->depth > MIN_DEPTH)
 		env->cam->depth -= 0.1;
 	if (key == PG_DOWN && env->cam->depth < MAX_DEPTH)
 		env->cam->depth += 0.1;
-	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }

@@ -6,9 +6,11 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 00:52:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 22:32:54 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:06:24 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #include <stdlib.h>
 #include "fdf.h"
@@ -18,12 +20,18 @@
 static void	init_mlx(t_env *env)
 {
 	t_mlx	*fdf_mlx;
+	t_img	*fdf_img;
 
 	if (!(fdf_mlx = (t_mlx*)malloc(sizeof(t_mlx))))
 		print_error("Error : Can't allocate memory.", 1);
 	fdf_mlx->id = mlx_init();
 	fdf_mlx->win = mlx_new_window(fdf_mlx->id, WIDTH, HEIGHT, TITLE);
+	if (!(fdf_img = (t_img*)malloc(sizeof(t_img))))
+		print_error("Error : Can't allocate memory.", 1);
+	fdf_img->id = mlx_new_image(fdf_mlx->id, WIDTH, HEIGHT);
+	fdf_img->data = mlx_get_data_addr(fdf_img->id, &(fdf_img->bpp), &(fdf_img->size), &(fdf_img->endian));
 	env->mlx = fdf_mlx;
+	env->mlx->img = fdf_img;
 }
 
 static void	init_cam(t_env *env)

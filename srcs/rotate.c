@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 18:43:08 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 22:32:37 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:03:00 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 void	rotate(t_env *env, int key)
 {
+	env = new_img(env);
 	if (key == NUM2)
 		env->cam->alpha += 0.05;
 	if (key == NUM8)
@@ -29,7 +30,6 @@ void	rotate(t_env *env, int key)
 		env->cam->gamma -= 0.05;
 	if (key == NUM7)
 		env->cam->gamma += 0.05;
-	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
 

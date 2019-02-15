@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:05:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 22:37:24 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:05:14 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ static int		light(int start, int end, double percent)
 
 void			colorset(t_env *env, int key)
 {
+	env = new_img(env);
 	if (key == Z)
 		earth_set(env);
 	if (key == X)
 		mars_set(env);
 	if (key == C)
 		moon_set(env);
-	mlx_clear_window(env->mlx->id, env->mlx->win);
 	print_map(env);
 }
 
