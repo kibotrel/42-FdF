@@ -6,13 +6,12 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 06:58:53 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:27:25 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-
 
 typedef struct	s_img
 {
@@ -159,7 +158,7 @@ int				init_color(t_env *env, int z);
 **	hud.c
 */
 
-void			print_hud(t_env  *env, int draw);
+void			print_hud(t_env *env, int draw);
 
 /*
 **	rotate.c

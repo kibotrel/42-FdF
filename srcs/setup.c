@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 00:52:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:06:24 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:24:21 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static void	init_mlx(t_env *env)
 	if (!(fdf_img = (t_img*)malloc(sizeof(t_img))))
 		print_error("Error : Can't allocate memory.", 1);
 	fdf_img->id = mlx_new_image(fdf_mlx->id, WIDTH, HEIGHT);
-	fdf_img->data = mlx_get_data_addr(fdf_img->id, &(fdf_img->bpp), &(fdf_img->size), &(fdf_img->endian));
+	fdf_img->data = mlx_get_data_addr(fdf_img->id, &(fdf_img->bpp),
+					&(fdf_img->size), &(fdf_img->endian));
 	env->mlx = fdf_mlx;
 	env->mlx->img = fdf_img;
 }

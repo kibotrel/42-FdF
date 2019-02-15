@@ -6,14 +6,14 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 02:07:46 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:11:24 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:20:21 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "fdf.h"
-#include "env.h"//
-#include "mlx.h"//
+#include "env.h"
+#include "mlx.h"
 
 void	free_all(t_env *env)
 {

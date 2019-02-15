@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:56:28 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:02:53 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 07:23:58 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		toggle_hud(t_env *env)
 	print_map(env);
 }
 
-static void	print_boxes(t_env *env)
+static void	print_box_controls(t_env *env)
 {
 	int	y;
 	int	x;
@@ -40,6 +40,13 @@ static void	print_boxes(t_env *env)
 				pixel_to_image(env, x, y, 0x242424);
 		}
 	}
+}
+
+static void	print_box_credits(t_env *env)
+{
+	int	y;
+	int	x;
+
 	y = 1119;
 	while (++y < HEIGHT)
 	{
@@ -54,12 +61,7 @@ static void	print_boxes(t_env *env)
 	}
 }
 
-static void	print_credits(void *id, void *win)
-{
-	mlx_string_put(id, win, 865, 1150, 0x68C800, "Wireframe made by kibotrel");
-}
-
-static void	print_controls(void *id, void *win)
+static void	print_infos(void *id, void *win)
 {
 	mlx_string_put(id, win, 1835, 320, 0x68C800, "Moves");
 	mlx_string_put(id, win, 1795, 350, 0xFFFFFF, "W / A / S / D");
@@ -77,6 +79,7 @@ static void	print_controls(void *id, void *win)
 	mlx_string_put(id, win, 1815, 830, 0xFFFFFF, "Z / X / C");
 	mlx_string_put(id, win, 1833, 880, 0x68C800, "Close");
 	mlx_string_put(id, win, 1843, 910, 0xFFFFFF, "Esc");
+	mlx_string_put(id, win, 865, 1150, 0x68C800, "Wireframe made by kibotrel");
 }
 
 void		print_hud(t_env *env, int draw)
@@ -84,11 +87,11 @@ void		print_hud(t_env *env, int draw)
 	if (env->cam->hud == 1)
 	{
 		if (!draw)
-			print_boxes(env);
-		else
 		{
-			print_controls(env->mlx->id, env->mlx->win);
-			print_credits(env->mlx->id, env->mlx->win);
+			print_box_credits(env);
+			print_box_controls(env);
 		}
+		else
+			print_infos(env->mlx->id, env->mlx->win);
 	}
 }
