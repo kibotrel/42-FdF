@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 04:53:11 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 23:46:17 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 15:01:14 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 **	Available projections and somes informations
 */
 
-# define MIN_DEPTH 0.5
-# define MAX_DEPTH 5
+# define MIN_DEPTH 1.2
+# define MAX_DEPTH 20
 # define ISOMETRIC 0
 # define PARALLEL 1
 # define OFFSET 25
@@ -84,4 +84,18 @@
 # define GRAY_LOW 0x6A6A6A
 # define GRAY_MID 0x868686
 # define GRAY_HIGH 0xC3C3C3
+
+/*
+**	Error messages
+*/
+
+# define ERR_MALLOC "\033[31;1mError :\033[0m Can't allocate memory."
+# define ERR_SPLIT "\033[31;1mError :\033[0m Can't retrieve all points."
+# define ERR_WIDTH "\033[31;1mError :\033[0m Map width isn't the same all rows."
+# define ERR_EMPTY_FILE "\033[31;1mError :\033[0m Empty file."
+# define ERR_FILENAME "\033[31;1mError :\033[0m Wrong filename."
+# define ERR_OPEN "\033[31;1mError :\033[0m Can't open file."
+# define ERR_CLOSE "\033[31;1mError :\033[0m Can't close file."
+# define ERR_EMPTY_ROW "\033[31;1mError :\033[0m Empty row within the file."
+# define ERR_FORMAT "\033[31;1mError :\033[0m Incorrect row format."
 #endif
