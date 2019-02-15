@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/14 22:26:37 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/02/15 06:50:41 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ CC			= gcc
 OBJ			= $(SRC:.c=.o)
 LIBS		= -L$(LFTDIR) -lft -L$(MLXDIR) -lmlx
 CFLAGS		= $(INCLUDES) -Wall -Wextra -Werror
+
 # Color codes
 
 RESET		= \033[0m
