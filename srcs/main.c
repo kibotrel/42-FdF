@@ -6,13 +6,14 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 22:31:10 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 09:52:36 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 14:51:48 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "mlx.h"
 #include "libft.h"
+#include "mlx.h"
+#include "env.h"
 #include "fdf.h"
 
 static void	print_usage(void)
@@ -48,7 +49,7 @@ int			main(int ac, char **av)
 	if (ac == 2)
 	{
 		if (!(env = (t_env*)malloc(sizeof(t_env))))
-			print_error("Error : Can't allocate memory.", 1);
+			print_error(ERR_MALLOC, 1);
 		parse_file(av[1], env);
 		initialize(env);
 		print_map(env);

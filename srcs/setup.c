@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 00:52:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 11:26:01 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 14:49:23 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static void	init_mlx(t_env *env)
 	t_img	*fdf_img;
 
 	if (!(fdf_mlx = (t_mlx*)malloc(sizeof(t_mlx))))
-		print_error("Error : Can't allocate memory.", 1);
+		print_error(ERR_MALLOC, 1);
 	fdf_mlx->id = mlx_init();
 	fdf_mlx->win = mlx_new_window(fdf_mlx->id, WIDTH, HEIGHT, TITLE);
 	if (!(fdf_img = (t_img*)malloc(sizeof(t_img))))
-		print_error("Error : Can't allocate memory.", 1);
+		print_error(ERR_MALLOC, 1);
 	fdf_img->id = mlx_new_image(fdf_mlx->id, WIDTH, HEIGHT);
 	fdf_img->data = mlx_get_data_addr(fdf_img->id, &(fdf_img->bpp),
 					&(fdf_img->size), &(fdf_img->endian));
@@ -38,7 +38,7 @@ static void	init_cam(t_env *env)
 	t_cam	*fdf_cam;
 
 	if (!(fdf_cam = (t_cam*)malloc(sizeof(t_cam))))
-		print_error("Error : Can't allocate memory.", 1);
+		print_error(ERR_MALLOC, 1);
 	fdf_cam->type = ISOMETRIC;
 	fdf_cam->zoom = get_zoom(WIDTH / env->width / 2, HEIGHT / env->height / 2);
 	fdf_cam->offset_y = 0;

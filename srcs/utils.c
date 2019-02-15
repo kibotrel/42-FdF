@@ -6,12 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:54:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/07 08:27:35 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 14:52:22 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+#include "env.h"
 #include "fdf.h"
 
 int		is_validname(char *filename)
@@ -45,7 +46,7 @@ void	check_row(char *row)
 
 	i = 0;
 	if (!*row)
-		print_error("Error : Empty row within the file.", 7);
+		print_error(ERR_EMPTY_ROW, 7);
 	while (row[i])
 	{
 		if (row[i] == '-' && ft_isdigit(row[i + 1]))
@@ -53,7 +54,7 @@ void	check_row(char *row)
 		else if (ft_isdigit(row[i]) || row[i] == ' ')
 			i++;
 		else
-			print_error("Error : Incorrect row format.", 8);
+			print_error(ERR_FORMAT, 8);
 	}
 }
 
