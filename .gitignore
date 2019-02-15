@@ -4,7 +4,4 @@ objs/
 libft.a
 fdf
 fdf.dSYM
-
-
-// ACTIVER / DESACTIVER HUD
-// PALETTE DE COULEUR
+*.sh
