@@ -6,13 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 03:30:20 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:03:26 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 11:31:06 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
 #include "mlx.h"
 #include "env.h"
+#include "fdf.h"
 
 void	zoom(t_env *env, int key)
 {
@@ -34,7 +34,7 @@ void	projection(t_env *env, int key)
 	env->cam->zoom = get_zoom(WIDTH / env->width / 2, HEIGHT / env->height / 2);
 	env->cam->offset_x = 0;
 	env->cam->offset_y = 0;
-	env->cam->depth = 5.0;
+	env->cam->depth = 20.0;
 	env->cam->alpha = 0.0;
 	env->cam->beta = 0.0;
 	env->cam->gamma = 0.0;
@@ -59,8 +59,8 @@ void	scale_height(t_env *env, int key)
 {
 	env = new_img(env);
 	if (key == PG_UP && env->cam->depth > MIN_DEPTH)
-		env->cam->depth -= 0.1;
+		env->cam->depth -= 0.4;
 	if (key == PG_DOWN && env->cam->depth < MAX_DEPTH)
-		env->cam->depth += 0.1;
+		env->cam->depth += 0.4;
 	print_map(env);
 }

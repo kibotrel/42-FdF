@@ -6,14 +6,14 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 22:31:10 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 08:43:17 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 09:52:36 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "mlx.h"
 #include "libft.h"
 #include "fdf.h"
-#include "mlx.h"
 
 static void	print_usage(void)
 {
@@ -39,12 +39,6 @@ static void	print_usage(void)
 	ft_putendl("\t- Reset view point (R)\n\t- Toggle HUD (H)");
 	ft_putendl("\t- Close the window and exit the program (ESC)");
 	ft_putendl("\n\t\t\t\t\t\t\033[0m\033[32;1mMade by kibotrel\n\033[0m");
-}
-
-void		print_error(char *desc, int error)
-{
-	ft_putendl(desc);
-	exit(error);
 }
 
 int			main(int ac, char **av)

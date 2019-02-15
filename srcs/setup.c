@@ -6,16 +6,14 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 00:52:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:24:21 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 11:26:01 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 #include <stdlib.h>
-#include "fdf.h"
 #include "mlx.h"
 #include "env.h"
+#include "fdf.h"
 
 static void	init_mlx(t_env *env)
 {
@@ -45,7 +43,7 @@ static void	init_cam(t_env *env)
 	fdf_cam->zoom = get_zoom(WIDTH / env->width / 2, HEIGHT / env->height / 2);
 	fdf_cam->offset_y = 0;
 	fdf_cam->offset_x = 0;
-	fdf_cam->depth = 5.0;
+	fdf_cam->depth = 20.0;
 	fdf_cam->alpha = 0.0;
 	fdf_cam->beta = 0.0;
 	fdf_cam->gamma = 0.0;

@@ -6,14 +6,15 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 02:07:46 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:20:21 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:13:50 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "fdf.h"
-#include "env.h"
+#include "libft.h"
 #include "mlx.h"
+#include "env.h"
+#include "fdf.h"
 
 void	free_all(t_env *env)
 {
@@ -52,4 +53,10 @@ t_env	*new_img(t_env *env)
 int		get_zoom(int a, int b)
 {
 	return (a < b ? a : b);
+}
+
+void	print_error(char *desc, int error)
+{
+	ft_putendl(desc);
+	exit(error);
 }

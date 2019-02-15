@@ -6,14 +6,14 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 02:01:56 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 22:22:11 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:00:27 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "mlx.h"
-#include "fdf.h"
 #include "env.h"
+#include "fdf.h"
 
 static int		red_cross(void *env)
 {

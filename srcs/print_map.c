@@ -6,13 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 05:16:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:04:52 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:01:03 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include "env.h"
 #include "mlx.h"
+#include "env.h"
+#include "fdf.h"
 
 void		print_map(t_env *env)
 {

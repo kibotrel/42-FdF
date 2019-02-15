@@ -6,15 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:56:28 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:23:58 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 09:51:51 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 #include "mlx.h"
-#include "fdf.h"
 #include "env.h"
+#include "fdf.h"
 
 void		toggle_hud(t_env *env)
 {

@@ -6,13 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 07:52:39 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 18:42:25 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:25:09 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "fdf.h"
 #include "env.h"
+#include "fdf.h"
 
 static t_pos	isometric(t_pos p)
 {
@@ -33,7 +33,6 @@ static t_pos	parallel(t_pos p)
 
 	y = p.y;
 	x = p.x;
-	p.z += 50;
 	p.y = y - p.z * sin(0.785398);
 	p.x = x - p.z * cos(0.785398);
 	return (p);

@@ -6,13 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:05:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:05:14 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:01:42 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
 #include "mlx.h"
 #include "env.h"
+#include "fdf.h"
 
 static double	ratio(int start, int end, int current)
 {
@@ -48,7 +48,7 @@ int				init_color(t_env *env, int z)
 	percent = ratio(env->z_min, env->z_max, z);
 	if (percent < 0.005)
 		return (env->color_min);
-	else if (percent < 0.065)
+	else if (percent < 0.0525)
 		return (env->color_fourth);
 	else if (percent < 0.125)
 		return (env->color_half);

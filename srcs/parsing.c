@@ -6,13 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:26:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 22:32:26 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:00:46 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "libft.h"
 #include "fdf.h"
 

@@ -6,14 +6,14 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 05:52:42 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:01:29 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 09:51:24 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "fdf.h"
 #include "mlx.h"
 #include "env.h"
+#include "fdf.h"
 
 static t_line	setup_params(t_pos a, t_pos b)
 {
