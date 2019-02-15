@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 00:07:38 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 07:27:25 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:00:14 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,6 @@ typedef struct	s_line
 }				t_line;
 
 /*
-**	main.c
-*/
-
-void			print_error(char *desc, int error);
-
-/*
 **	parsing.c
 */
 
@@ -105,7 +99,9 @@ int				is_validname(char *filename);
 t_env			*new_img(t_env *env);
 void			free_all(t_env *param);
 void			free_tab(char **coords);
+void			print_error(char *desc, int error);
 int				get_zoom(int a, int b);
+
 /*
 ** setup.c
 */
