@@ -2,7 +2,7 @@
 
 *Screenshot there soon™*
 
-This project's goal is to make a wireframe representation of a terrain
+This project's goal is to make a wireframe representation of a coordinate system
 
 ## Install
 
