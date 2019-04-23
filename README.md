@@ -56,4 +56,4 @@ $> echo $?
 ```
 
 ## Screenshots
-*Needs to add them soon™*
+*Need to add them soon™*
