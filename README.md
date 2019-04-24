@@ -1,6 +1,6 @@
 # 42-FdF
 
-*Screenshot there soon™*
+![42](/screenshots/42.png)
 
 This project's goal is to make a wireframe representation of a coordinate system
 
@@ -57,4 +57,8 @@ $> echo $?
 ```
 
 ## Screenshots
-*Need to add them soon™*
+![Europe](/screenshots/Europe.png)
+![Andes](/screenshots/Andes.png)
+![Venus](/screenshots/Venus.png)
+![France](/screenshots/France.png)
+![Red_Sea](/screenshots/Red_Sea.png)
