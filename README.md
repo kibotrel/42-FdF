@@ -33,6 +33,7 @@ Keyboard :
 * **I / P** Switch between **Isometric** and **Parallel** projections
 * **Z / X / C** Change **Colorset**
 * **Page_Up / Page_Down** Modify **Heigh Value** along projected z axis
+* **+ / -** **Zoom-in** or **Zoom-out**
 * **R** Reset everything to the default point of view
 * **H** Toggle HUD
 * **ESC** Quit the visualizer
