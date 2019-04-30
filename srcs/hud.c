@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:56:28 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 09:51:51 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/04/30 16:01:43 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ static void	print_box_controls(t_env *env)
 	int	y;
 	int	x;
 
-	y = 299;
+	y = 199;
 	while (++y < 951)
 	{
 		x = 1714;
 		while (++x < WIDTH)
 		{
-			if (y < 303 || (y > 948 && y < 951) || x < 1717)
+			if (y < 203 || (y > 948 && y < 951) || x < 1717)
 				pixel_to_image(env, x, y, 0xFFFFFF);
 			else
 				pixel_to_image(env, x, y, 0x242424);
@@ -61,6 +61,8 @@ static void	print_box_credits(t_env *env)
 
 static void	print_infos(void *id, void *win)
 {
+	mlx_string_put(id, win, 1840, 240, 0x68C800, "Zoom");
+	mlx_string_put(id, win, 1836, 270, 0xFFFFFF, "+ / -");
 	mlx_string_put(id, win, 1835, 320, 0x68C800, "Moves");
 	mlx_string_put(id, win, 1795, 350, 0xFFFFFF, "W / A / S / D");
 	mlx_string_put(id, win, 1830, 400, 0x68C800, "Height");
