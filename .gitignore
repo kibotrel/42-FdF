@@ -1,6 +1,18 @@
-objs/
-*/objs/*.o
-libft.a
+# Objects directories - Files
+objs
+*.o
+
+# Static libraries - Headers
+*.a
+*.gch
+
+# Executables - Scripts
+a.out
 fdf
-fdf.dSYM
-*.sh
+
+# Debug
+*.dSYM
+
+# Recovery
+*.swp
+.DS_Store
