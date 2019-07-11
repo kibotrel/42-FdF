@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 22:15:45 by kibotrel          #+#    #+#              #
-#    Updated: 2019/02/15 06:50:41 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/07/11 13:31:34 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,13 @@ OBJDIR		= objs/
 SRCDIR		= srcs/
 LFTDIR		= libft/
 MLXDIR		= /usr/local/lib/
-INCDIR		= ./includes/ ./libft/includes/
+INCDIR		= ./incs/ ./libft/incs/
 
 # Source files (Can be changed)
 
-SRC			= main.c			\
+INCS		= incs/fdf.h incs/env.h
+
+SRCS		= main.c			\
 			  parsing.c			\
 			  utils.c			\
 			  utils2.c			\
@@ -44,7 +46,7 @@ LFT			= ./libft/libft.a
 TOOLS		= OpenGL AppKit
 # Some tricks in order to get the makefile doing his job the way I want (Can't be changed)
 
-CSRC		= $(addprefix $(SRCDIR), $(SRC))
+CSRC		= $(addprefix $(SRCDIR), $(SRCS))
 COBJ		= $(addprefix $(OBJDIR), $(OBJ))
 INCLUDES	= $(foreach include, $(INCDIR), -I$(include))
 FRAMEWORKS	= $(foreach framework, $(TOOLS), -framework $(framework))
@@ -52,7 +54,7 @@ FRAMEWORKS	= $(foreach framework, $(TOOLS), -framework $(framework))
 # How files should be compiled with set flags (Can be changed)
 
 CC			= gcc
-OBJ			= $(SRC:.c=.o)
+OBJ			= $(SRCS:.c=.o)
 LIBS		= -L$(LFTDIR) -lft -L$(MLXDIR) -lmlx
 CFLAGS		= $(INCLUDES) -Wall -Wextra -Werror
 
@@ -75,7 +77,7 @@ $(OBJDIR):
 
 # Redefinition of implicit compilation rule to prompt some colors and file names during the said compilation
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
+$(OBJDIR)%.o: $(SRCDIR)%.c $(INCS)
 	@echo "$(YELLOW)      - Compiling :$(RESET)" $<
 	@$(CC) $(CFLAGS) -c $< -o $@
 
@@ -88,14 +90,14 @@ $(LFT):
 
 clean:
 	@echo "$(GREEN)***   Deleting all object from fdf   ...   ***\n$(RESET)"
-	@rm -f $(COBJ)
+	@$(RM) $(COBJ)
 
 # Deleting the executable after cleaning up all .o files
 
 fclean: clean
 	@make -sC $(LFTDIR) fclean
 	@echo "$(GREEN)***   Deleting executable file from fdf   ...   ***\n$(RESET)"
-	@rm -f $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 
