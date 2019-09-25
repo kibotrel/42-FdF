@@ -6,7 +6,12 @@ This project's goal is to make a wireframe representation of a coordinate system
 
 ## Install
 
-Only works on **42-Paris Dumps** at the moment but should be portable on any **macOS X** in the near future.
+Only works on **42-Paris Dumps** at the moment but should be portable on any **macOS X** in the near future. This project countains submodules you must initialize them beforehand :
+
+```shell
+$> git clone --recurse-submodules https://github.com/kibotrel/42-FdF.git
+$> cd 42-FdF && make
+```
 
 Simply type command bellow in your shell :
 ```
