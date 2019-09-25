@@ -13,11 +13,6 @@ $> git clone --recurse-submodules https://github.com/kibotrel/42-FdF.git
 $> cd 42-FdF && make
 ```
 
-Simply type command bellow in your shell :
-```shell
-$> make
-```
-
 ## Usage
 ### Run the program
 
