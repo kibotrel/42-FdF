@@ -14,7 +14,7 @@ $> cd 42-FdF && make
 ```
 
 Simply type command bellow in your shell :
-```
+```shell
 $> make
 ```
 
@@ -22,11 +22,11 @@ $> make
 ### Run the program
 
 Once the program is compiled, run it with the following command line :
-```
+```shell
 $> ./fdf 'map.fdf'
 ```
 To get more informations on how the program works and how you can interact with it type :
-```
+```shell
 $> ./fdf
 ```
 
@@ -57,7 +57,7 @@ Each following error is handled by the program leading to a complete memory free
 * Empty file (*ERROR-CODE 9*)
 
 Whenever one of these error occurs, the correct error message is displayed on the **standard output** and the whole program return an error code that you can retrieve by running :
-```
+```shell
 $> echo $?
 ```
 
