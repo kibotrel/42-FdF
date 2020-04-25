@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   usage.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: demonwav <demonwav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/04 22:31:10 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 14:51:48 by kibotrel         ###   ########.fr       */
+/*   Created: 2020/04/22 00:46:48 by demonwav          #+#    #+#             */
+/*   Updated: 2020/04/22 00:47:12 by demonwaves       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
-#include "mlx.h"
-#include "env.h"
-#include "fdf.h"
 
-static void	print_usage(void)
+void	usage(void)
 {
 	ft_putendl("\n\033[32;1musage: ./fdf map.fdf\033[0m\033[36m");
 	ft_putendl("\n\tmap.fdf : array of XYZ coordinates");
@@ -40,23 +36,4 @@ static void	print_usage(void)
 	ft_putendl("\t- Reset view point (R)\n\t- Toggle HUD (H)");
 	ft_putendl("\t- Close the window and exit the program (ESC)");
 	ft_putendl("\n\t\t\t\t\t\t\033[0m\033[32;1mMade by kibotrel\n\033[0m");
-}
-
-int			main(int ac, char **av)
-{
-	t_env	*env;
-
-	if (ac == 2)
-	{
-		if (!(env = (t_env*)malloc(sizeof(t_env))))
-			print_error(ERR_MALLOC, 1);
-		parse_file(av[1], env);
-		initialize(env);
-		print_map(env);
-		hooks(env);
-		mlx_loop(env->mlx);
-	}
-	else
-		print_usage();
-	return (0);
 }

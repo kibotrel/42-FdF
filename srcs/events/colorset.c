@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_presets.c                                    :+:      :+:    :+:   */
+/*   colorset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: demonwav <demonwav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/14 22:23:17 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/14 22:30:06 by kibotrel         ###   ########.fr       */
+/*   Created: 2020/04/25 03:41:09 by demonwav          #+#    #+#             */
+/*   Updated: 2020/04/25 03:43:50 by demonwaves       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
-#include "fdf.h"
+#include "structs.h"
 
-void	earth_set(t_env *env)
+static void	earth_set(t_env *env)
 {
 	env->color_min = BLUE;
 	env->color_max = WHITE;
@@ -22,7 +22,7 @@ void	earth_set(t_env *env)
 	env->color_fourth = GREEN;
 }
 
-void	moon_set(t_env *env)
+static void	moon_set(t_env *env)
 {
 	env->color_min = GRAY_MIN;
 	env->color_max = WHITE;
@@ -31,11 +31,21 @@ void	moon_set(t_env *env)
 	env->color_fourth = GRAY_LOW;
 }
 
-void	mars_set(t_env *env)
+static void	mars_set(t_env *env)
 {
 	env->color_min = BROWNER;
 	env->color_max = ORANGE;
 	env->color_half = REDER;
 	env->color_third = BROWN;
 	env->color_fourth = RED;
+}
+
+void		colorset(t_env *env)
+{
+	if (env->input[SDL_SCANCODE_1])
+		earth_set(env);
+	if (env->input[SDL_SCANCODE_2])
+		mars_set(env);
+	if (env->input[SDL_SCANCODE_3])
+		moon_set(env);
 }

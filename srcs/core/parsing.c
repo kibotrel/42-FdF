@@ -3,40 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: demonwav <demonwav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 00:26:31 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 14:52:02 by kibotrel         ###   ########.fr       */
+/*   Created: 2020/04/22 01:00:01 by demonwav          #+#    #+#             */
+/*   Updated: 2020/04/25 06:49:03 by demonwaves       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include "libft.h"
+#include <unistd.h>
 #include "env.h"
-#include "fdf.h"
+#include "clean.h"
+#include "libft.h"
+#include "utils.h"
 
 static void	str_to_int_table(char **coords, t_env *env)
 {
+	int			error;
+	t_pos		p;
 	t_pos		**table;
-	int			y;
-	int			x;
 
+	error = 0;
 	if (!(table = (t_pos**)malloc(sizeof(t_pos*) * env->height)))
-		print_error("ERR_MALLOC", 1);
-	y = -1;
-	while (++y < env->height)
-		if (!(table[y] = (t_pos*)malloc(sizeof(t_pos) * (env->width))))
-			print_error("ERR_MALLOC", 1);
+		error = 1;
+	p.y = -1;
+	while (++p.y < env->height && !error)
+		if (!(table[p.y] = (t_pos*)malloc(sizeof(t_pos) * (env->width))))
+			error = 1;
+	error ? free(coords) : 0;
+	error ? clean(env, 1, ERR_MALLOC) : 0;
 	if (env->height - 1 > 0)
 		expand_grid(table, env);
-	x = -1;
-	while (++x < env->width)
+	p.x = -1;
+	while (++p.x < env->width)
 	{
-		table[y - 1][x].x = x;
-		table[y - 1][x].y = y - 1;
-		table[y - 1][x].z = ft_atoi(coords[x]);
+		table[p.y - 1][p.x].x = p.x;
+		table[p.y - 1][p.x].y = p.y - 1;
+		table[p.y - 1][p.x].z = ft_atoi(coords[p.x]);
 	}
 	env->grid = table;
 }
@@ -47,22 +51,25 @@ static void	get_values(int fd, t_env *env)
 	char	**coords;
 
 	env->height = 0;
-	while (ft_get_next_line(fd, &row))
+	while (ft_get_next_line(fd, &row) && ++env->height)
 	{
-		env->height++;
 		check_row(row);
 		if (!(coords = ft_strsplit(row, ' ')))
-			print_error(ERR_SPLIT, 6);
+			clean(env, 6, ERR_SPLIT);
 		if (env->height == 1)
 			env->width = row_size(coords);
 		else if (row_size(coords) != env->width)
-			print_error(ERR_WIDTH, 5);
+		{
+			free(row);
+			free_tab(coords);
+			clean(env, 5, ERR_WIDTH);
+		}
 		str_to_int_table(coords, env);
 		free(row);
 		free_tab(coords);
 	}
 	if (!env->height)
-		print_error(ERR_EMPTY_FILE, 9);
+		clean(env, 9, ERR_EMPTY_FILE);
 }
 
 void		parse_file(char *file, t_env *env)
@@ -75,5 +82,5 @@ void		parse_file(char *file, t_env *env)
 		print_error(ERR_OPEN, 2);
 	get_values(fd, env);
 	if (close(fd))
-		print_error(ERR_CLOSE, 3);
+		clean(env, 3, ERR_CLOSE);
 }

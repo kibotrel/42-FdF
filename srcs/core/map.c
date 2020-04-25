@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: demonwav <demonwav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/07 05:16:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 10:01:03 by kibotrel         ###   ########.fr       */
+/*   Created: 2020/04/22 06:06:58 by demonwav          #+#    #+#             */
+/*   Updated: 2020/04/25 03:57:36 by demonwaves       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include "env.h"
-#include "fdf.h"
+#include "utils.h"
+#include "graphic.h"
 
-void		print_map(t_env *env)
+void	print_map(t_env *env)
 {
 	int	y;
 	int	x;
@@ -33,8 +32,4 @@ void		print_map(t_env *env)
 				transform(env->grid[y + 1][x], env), env);
 		}
 	}
-	print_hud(env, 0);
-	mlx_put_image_to_window(env->mlx->id, env->mlx->win,
-		env->mlx->img->id, 0, 0);
-	print_hud(env, 1);
 }

@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: demonwav <demonwav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 00:54:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 14:52:22 by kibotrel         ###   ########.fr       */
+/*   Created: 2020/04/22 01:03:26 by demonwav          #+#    #+#             */
+/*   Updated: 2020/04/22 01:28:04 by demonwaves       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 #include "env.h"
-#include "fdf.h"
+#include "libft.h"
+#include "utils.h"
+
+int		row_size(char **coords)
+{
+	int		y;
+
+	y = 0;
+	while (coords[y])
+		y++;
+	return (y);
+}
 
 int		is_validname(char *filename)
 {
@@ -30,14 +40,14 @@ int		is_validname(char *filename)
 	return (i >= 0 ? 1 : 0);
 }
 
-int		row_size(char **coords)
+void	free_tab(char **coords)
 {
-	int		y;
+	int	y;
 
 	y = 0;
 	while (coords[y])
-		y++;
-	return (y);
+		free(coords[y++]);
+	free(coords);
 }
 
 void	check_row(char *row)
@@ -72,9 +82,4 @@ void	expand_grid(t_pos **table, t_env *env)
 		free(env->grid[y]);
 	}
 	free(env->grid);
-}
-
-int		absolute_value(int nb)
-{
-	return (nb < 0 ? -nb : nb);
 }

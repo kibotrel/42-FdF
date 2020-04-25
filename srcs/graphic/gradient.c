@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   gradient.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: demonwav <demonwav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 18:05:41 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/02/15 10:01:42 by kibotrel         ###   ########.fr       */
+/*   Created: 2020/04/22 07:48:10 by demonwav          #+#    #+#             */
+/*   Updated: 2020/04/25 06:02:21 by demonwaves       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include "env.h"
-#include "fdf.h"
-
-static double	ratio(int start, int end, int current)
-{
-	double	pos;
-	double	distance;
-
-	pos = current - start;
-	distance = end - start;
-	return (distance == 0 ? 1.0 : pos / distance);
-}
+#include "graphic.h"
 
 static int		light(int start, int end, double percent)
 {
 	return ((int)((1 - percent) * start + percent * end));
 }
 
-void			colorset(t_env *env, int key)
+static double	ratio(int a, int b, int x)
 {
-	env = new_img(env);
-	if (key == Z)
-		earth_set(env);
-	if (key == X)
-		mars_set(env);
-	if (key == C)
-		moon_set(env);
-	print_map(env);
+	return (b - a == 0 ? 1.0 : (double)(x - a) / (double)(b - a));
+}
+
+int				gradient(t_pos pos, t_pos start, t_pos end, t_line params)
+{
+	int		red;
+	int		green;
+	int		blue;
+	double	percent;
+
+	if (pos.color == end.color)
+		return (pos.color);
+	if (params.delta_x > params.delta_y)
+		percent = ratio(start.x, end.x, pos.x);
+	else
+		percent = ratio(start.y, end.y, pos.y);
+	red = light((start.color >> 16) & 0xFF, (end.color >> 16) & 0xFF, percent);
+	green = light((start.color >> 8) & 0xFF, (end.color >> 8) & 0xFF, percent);
+	blue = light(start.color & 0xFF, end.color & 0xFF, percent);
+	return ((red << 16) | (green << 8) | blue);
 }
 
 int				init_color(t_env *env, int z)
@@ -56,23 +56,4 @@ int				init_color(t_env *env, int z)
 		return (env->color_third);
 	else
 		return (env->color_max);
-}
-
-int				color(t_pos pos, t_pos start, t_pos end, t_line params)
-{
-	int		red;
-	int		green;
-	int		blue;
-	double	percent;
-
-	if (pos.color == end.color)
-		return (pos.color);
-	if (params.delta_x > params.delta_y)
-		percent = ratio(start.x, end.x, pos.x);
-	else
-		percent = ratio(start.y, end.y, pos.y);
-	red = light((start.color >> 16) & 0xFF, (end.color >> 16) & 0xFF, percent);
-	green = light((start.color >> 8) & 0xFF, (end.color >> 8) & 0xFF, percent);
-	blue = light(start.color & 0xFF, end.color & 0xFF, percent);
-	return ((red << 16) | (green << 8) | blue);
 }
