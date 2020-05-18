@@ -4,7 +4,7 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/kibotrel/42-fdf/badge)](https://www.codefactor.io/repository/github/kibotrel/42-fdf)
 
-This project's goal is to make a wire-frame representation of a coordinate system. It was originally a **42School** using **Minilibx graphic library** but since **macOS X Mojave** came out and **OpenGL deprecation**, I decided to use [SDL2](https://www.libsdl.org/) to make it run under Linux as-well.
+This project's goal is to make a wire-frame representation of a coordinate system. It was originally a **42School** project using **Minilibx graphic library** but since **macOS X Mojave** came out and **OpenGL deprecation**, I decided to use [SDL2](https://www.libsdl.org/) to make it run under Linux as-well.
 
 ## Install
 
